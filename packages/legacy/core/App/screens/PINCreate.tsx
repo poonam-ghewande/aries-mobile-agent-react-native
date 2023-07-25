@@ -104,7 +104,7 @@ const PINCreate: React.FC<PINCreateProps> = ({ setAuthenticated }) => {
         navigation.dispatch(
           CommonActions.reset({
             index: 0,
-            routes: [{ name: Screens.UseBiometry }],
+            routes: [{ name: Screens.WalletOptions }],
           })
         )
       }

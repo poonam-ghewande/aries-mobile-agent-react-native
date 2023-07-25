@@ -137,11 +137,12 @@ const CredentialOffer: React.FC<CredentialOfferProps> = ({ navigation, route }) 
       if (!(agent && credential && assertConnectedNetwork())) {
         return
       }
-
+      console.log('Accept', credential.id)
       setAcceptModalVisible(true)
 
       await agent.credentials.acceptOffer({ credentialRecordId: credential.id })
     } catch (err: unknown) {
+      console.log('Accepterror', err)
       setButtonsVisible(true)
       const error = new BifoldError(t('Error.Title1024'), t('Error.Message1024'), (err as Error).message, 1024)
       DeviceEventEmitter.emit(EventTypes.ERROR_ADDED, error)

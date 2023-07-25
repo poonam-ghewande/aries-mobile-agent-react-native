@@ -13,6 +13,9 @@ import { useStore } from '../contexts/store'
 import { useTheme } from '../contexts/theme'
 import { useDeepLinks } from '../hooks/deep-links'
 import AttemptLockout from '../screens/AttemptLockout'
+import CreateWallet from '../screens/CreateWallet'
+import ImportSuccess from '../screens/ImportSuccess'
+import ImportWalletVerify from '../screens/ImportWalletConfirmation'
 import NameWallet from '../screens/NameWallet'
 import Onboarding from '../screens/Onboarding'
 import { createCarouselStyle } from '../screens/OnboardingPages'
@@ -29,6 +32,7 @@ import ProofRequestStack from './ProofRequestStack'
 import SettingStack from './SettingStack'
 import TabStack from './TabStack'
 import { createDefaultStackOptions } from './defaultStackOptions'
+import Home from '../screens/Home'
 
 const RootStack: React.FC = () => {
   const [state, dispatch] = useStore()
@@ -114,7 +118,7 @@ const RootStack: React.FC = () => {
     if (appStateVisible.match(/active/) && prevAppStateVisible.match(/inactive|background/) && backgroundTime) {
       // prevents the user from being locked out during metro reloading
       setPrevAppStateVisible(appStateVisible)
-      //lock user out after 5 minutes
+      // lock user out after 5 minutes
       if (walletTimeout && backgroundTime && Date.now() - backgroundTime > walletTimeout) {
         lockoutUser()
       }
@@ -241,6 +245,39 @@ const RootStack: React.FC = () => {
           component={NameWallet}
         />
         <Stack.Screen
+          name={Screens.WalletOptions}
+          options={() => ({
+            title: t('Screens.BackupWallet'),
+            headerTintColor: OnboardingTheme.headerTintColor,
+            headerShown: true,
+            headerLeft: () => false,
+            rightLeft: () => false,
+          })}
+          component={CreateWallet}
+        />
+        <Stack.Screen
+          name={Screens.ImportWalletVerify}
+          options={() => ({
+            title: t('Screens.BackupWallet'),
+            headerTintColor: OnboardingTheme.headerTintColor,
+            headerShown: true,
+            headerLeft: () => false,
+            rightLeft: () => false,
+          })}
+          component={ImportWalletVerify}
+        />
+        <Stack.Screen
+          name={Screens.ImportSuccess}
+          options={() => ({
+            title: t('Screens.BackupWallet'),
+            headerTintColor: OnboardingTheme.headerTintColor,
+            headerShown: true,
+            headerLeft: () => false,
+            rightLeft: () => false,
+          })}
+          component={ImportSuccess}
+        />
+        <Stack.Screen
           name={Screens.UseBiometry}
           options={() => ({
             title: t('Screens.Biometry'),
@@ -250,6 +287,17 @@ const RootStack: React.FC = () => {
             rightLeft: () => false,
           })}
           component={useBiometry}
+        />
+        <Stack.Screen
+          name={Screens.Home}
+          options={() => ({
+            title: t('Screens.Home'),
+            headerTintColor: OnboardingTheme.headerTintColor,
+            headerShown: true,
+            headerLeft: () => false,
+            rightLeft: () => false,
+          })}
+          component={Home}
         />
       </Stack.Navigator>
     )

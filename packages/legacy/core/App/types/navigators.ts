@@ -36,6 +36,13 @@ export enum Screens {
   ProofDetails = 'Proof Details',
   ConnectionInvitation = 'Connection Invitation',
   NameWallet = 'Name Wallet',
+  Passphrase = 'Passphrase',
+  PassphraseVerify = 'Seed Phrase',
+  ImportWallet = 'Import Wallet',
+  ImportWalletVerify = 'Verify Phrase',
+  Success = 'Success',
+  WalletOptions = 'Create Walllet',
+  ImportSuccess = 'Success',
 }
 
 export enum Stacks {
@@ -80,6 +87,10 @@ export type AuthenticateStackParams = {
   [Screens.EnterPIN]: { setAuthenticated: (status: boolean) => void } | undefined
   [Screens.UseBiometry]: undefined
   [Screens.NameWallet]: undefined
+  [Screens.ImportWallet]: undefined
+  [Screens.ImportWalletVerify]: undefined
+  [Screens.WalletOptions]: undefined
+  [Screens.ImportSuccess]: undefined
 }
 
 export type ContactStackParams = {
@@ -126,6 +137,9 @@ export type SettingStackParams = {
   [Screens.Terms]: undefined
   [Screens.Onboarding]: undefined
   [Screens.Developer]: undefined
+  [Screens.Passphrase]: undefined
+  [Screens.PassphraseVerify]: undefined
+  [Screens.Success]: undefined
 }
 
 export type NotificationStackParams = {

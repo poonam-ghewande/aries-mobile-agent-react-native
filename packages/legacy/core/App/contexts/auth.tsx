@@ -150,3 +150,4 @@ export const AuthProvider: React.FC = ({ children }) => {
 }
 
 export const useAuth = () => useContext(AuthContext)
+export default AuthProvider

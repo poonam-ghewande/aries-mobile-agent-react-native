@@ -1,0 +1,680 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Export wallet screen screen renders correctly 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    Object {
+      "flex": 1,
+      "height": 1334,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View>
+    <View>
+      <View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 20,
+                "fontWeight": "bold",
+              },
+              Object {
+                "fontSize": 26,
+                "marginTop": 15,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Write down your seed phrase
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 14,
+                "fontWeight": "bold",
+              },
+              Object {
+                "fontSize": 18,
+                "lineHeight": 20,
+                "marginHorizontal": 30,
+                "marginTop": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          This is your seed phrase. Write it down on a paper and keep it in a safe place. You'll be asked to re-enter this phrase (in order) on the next step.
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "justifyContent": "center",
+          "marginTop": "30%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginRight": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#000000",
+                  "borderRadius": 5,
+                  "borderWidth": 1.3,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "padding": 7,
+                  "width": 150,
+                },
+                Object {
+                  "borderColor": "#42803E",
+                  "borderStyle": "dashed",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 14,
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "backgroundColor": "#000000",
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              abandon
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginRight": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#000000",
+                  "borderRadius": 5,
+                  "borderWidth": 1.3,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "padding": 7,
+                  "width": 150,
+                },
+                Object {
+                  "borderColor": "#42803E",
+                  "borderStyle": "dashed",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 14,
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "backgroundColor": "#000000",
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              ability
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginRight": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#000000",
+                  "borderRadius": 5,
+                  "borderWidth": 1.3,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "padding": 7,
+                  "width": 150,
+                },
+                Object {
+                  "borderColor": "#42803E",
+                  "borderStyle": "dashed",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 14,
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "backgroundColor": "#000000",
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              able
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginRight": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#000000",
+                  "borderRadius": 5,
+                  "borderWidth": 1.3,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "padding": 7,
+                  "width": 150,
+                },
+                Object {
+                  "borderColor": "#42803E",
+                  "borderStyle": "dashed",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 14,
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "backgroundColor": "#000000",
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              about
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginRight": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#000000",
+                  "borderRadius": 5,
+                  "borderWidth": 1.3,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "padding": 7,
+                  "width": 150,
+                },
+                Object {
+                  "borderColor": "#42803E",
+                  "borderStyle": "dashed",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 14,
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "backgroundColor": "#000000",
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              above
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginRight": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#000000",
+                  "borderRadius": 5,
+                  "borderWidth": 1.3,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "padding": 7,
+                  "width": 150,
+                },
+                Object {
+                  "borderColor": "#42803E",
+                  "borderStyle": "dashed",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 14,
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "backgroundColor": "#000000",
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              absurd
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginRight": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#000000",
+                  "borderRadius": 5,
+                  "borderWidth": 1.3,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "padding": 7,
+                  "width": 150,
+                },
+                Object {
+                  "borderColor": "#42803E",
+                  "borderStyle": "dashed",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 14,
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "backgroundColor": "#000000",
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              abuse
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginRight": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#000000",
+                  "borderRadius": 5,
+                  "borderWidth": 1.3,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "margin": 10,
+                  "padding": 7,
+                  "width": 150,
+                },
+                Object {
+                  "borderColor": "#42803E",
+                  "borderStyle": "dashed",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 14,
+                    "fontWeight": "normal",
+                  },
+                  Object {
+                    "backgroundColor": "#000000",
+                    "fontSize": 18,
+                  },
+                ]
+              }
+            >
+              absorb
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "stretch",
+          "margin": 20,
+          "marginTop": "auto",
+        }
+      }
+    >
+      <View
+        accessibilityLabel="Okay"
+        accessibilityRole="button"
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#42803E",
+            "borderRadius": 4,
+            "opacity": 1,
+            "padding": 16,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#FFFFFF",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                },
+                false,
+                false,
+                false,
+              ]
+            }
+          >
+            Continue
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

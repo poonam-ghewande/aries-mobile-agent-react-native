@@ -1,9 +1,9 @@
 import {
   AgentProvider,
   TourProvider,
+  AuthProvider,
   homeTourSteps,
   CommonUtilProvider,
-  AuthProvider,
   ConfigurationProvider,
   NetworkProvider,
   StoreProvider,
