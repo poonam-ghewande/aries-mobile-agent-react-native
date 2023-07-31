@@ -479,7 +479,12 @@ const translation = {
         "RecreatePIN": 'Changer le NIP',
         "CustomNotification": 'Notification personnalisée',
         "ProofRequesting": 'Demande de preuve',
-        "NameWallet": "Name your wallet (FR)"
+        "NameWallet": "Name your wallet (FR)",
+        "BackupWallet":"Portefeuille de sauvegarde",
+         "Confirmation" : 'Confirmation',
+         "CreateWallet" : 'Créer un portefeuille',
+        "VerifyPhrase" : 'Vérifier l\'expression',
+         "Succès" : 'Succès'
     },
     "Loading": {
         "TakingTooLong": "Cela prend plus de temps que d'habitude. Vous pouvez retourner à l'accueil ou continuer à attendre.",
@@ -553,6 +558,20 @@ const translation = {
         "InvalidPredicateValueTitle": "Valeur invalide pour {{ predicate }}",
         "InvalidPredicateValueDetails": "Doit être un nombre",
         "ConnectionLessLabel": "Anonyme"
-    }
+    },
+    "Backup" :{
+        "write_down": 'Écrivez votre phrase de départ',
+        "c'est_votre_graine":
+          "Ceci est votre phrase clé. Écrivez-la sur un papier et conservez-la dans un endroit sûr. Il vous sera demandé de saisir à nouveau cette phrase (dans l'ordre) à l'étape suivante.",
+        "continuer": 'Continuer',
+        "seed_phrase": 'Phrase de départ',
+        "confirm_seed_phrase": 'Confirmer la phrase de départ',
+        "select_each": 'Sélectionnez chaque mot dans l\'ordre dans lequel il vous a été présenté.',
+        "you_have_successfully": 'Vous avez sélectionné les mots avec succès.',
+        "complete_backup": 'Sauvegarde complète',
+        "backup_wallet": 'Portefeuille de sauvegarde',
+      
+      }
+    
 }
 export default translation

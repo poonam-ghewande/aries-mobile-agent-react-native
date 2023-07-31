@@ -8,7 +8,7 @@ import {
 } from '@aries-framework/core'
 import { useAgent } from '@aries-framework/react-hooks'
 import { agentDependencies } from '@aries-framework/react-native'
-import { CommonActions } from '@react-navigation/core'
+import { CommonActions, useNavigation } from '@react-navigation/core'
 import md5 from 'md5'
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, Dimensions, TextInput, Platform } from 'react-native'
@@ -25,16 +25,14 @@ import { useAuth } from '../contexts/auth'
 import { DispatchAction } from '../contexts/reducers/store'
 import { useStore } from '../contexts/store'
 import { useTheme } from '../contexts/theme'
-import { Stacks } from '../types/navigators'
+import { Screens, Stacks } from '../types/navigators'
 import { createLinkSecretIfRequired, getAgentModules } from '../utils/agent'
 import { Encrypt768, keyGen768 } from '../utils/crystals-kyber'
-import { didMigrateToAskar, migrateToAskar } from '../utils/migration'
-import RNFS from 'react-native-fs'
 
 const ImportWalletVerify: React.FC = () => {
   const { ColorPallet } = useTheme()
   const [store, dispatch] = useStore()
-  // const navigation = useNavigation()
+  const navigation = useNavigation()
   const { getWalletCredentials } = useAuth()
   const [PassPhrase, setPassPharse] = useState('')
   const [encodeHash, setencodeHash] = useState('')
@@ -75,6 +73,7 @@ const ImportWalletVerify: React.FC = () => {
     detailText: {
       justifyContent: 'flex-start',
       fontSize: 25,
+      color: '#ffff',
     },
   })
   const initAgent = async (importConfig: WalletExportImportConfig): Promise<void> => {
@@ -108,26 +107,7 @@ const ImportWalletVerify: React.FC = () => {
       newAgent.registerOutboundTransport(wsTransport)
       newAgent.registerOutboundTransport(httpTransport)
       console.log('\n\n\n\n 00000000')
-      // If we haven't migrated to Aries Askar yet, we need to do this before we initialize the agent.
-      if (!didMigrateToAskar(store.migration)) {
-        newAgent.config.logger.debug('Agent not updated to Aries Askar, updating...')
-        const walletConfig = {
-          id: credentials.id,
-          key: credentials.key,
-        }
-        console.log('\n\n\n\n 1111111')
-        await migrateToAskar(credentials.id, credentials.key, newAgent)
-        console.log('\n\n\n\n 22222222')
 
-        console.log('importwallet', importwallet)
-        await newAgent.wallet.initialize(walletConfig)
-
-        newAgent.config.logger.debug('Successfully finished updating agent to Aries Askar')
-        // Store that we migrated to askar.
-        dispatch({
-          type: DispatchAction.DID_MIGRATE_TO_ASKAR,
-        })
-      }
       const walletConfig = {
         id: credentials.id,
         key: credentials.key,
@@ -139,7 +119,10 @@ const ImportWalletVerify: React.FC = () => {
           id: credentials.id,
           key: credentials.key,
         },
-        importConfig
+        {
+          key: credentials.key,
+          path: selectedfilepath,
+        }
       )
 
       console.log('importwallet', importwallet, importConfig)
@@ -152,8 +135,13 @@ const ImportWalletVerify: React.FC = () => {
         index: 0,
         routes: [{ name: Stacks.TabStack }],
       })
-
-      // navigation.navigate(Screens.Home)
+      Toast.show({
+        type: ToastType.Success,
+        text1: `Import successfully`,
+        visibilityTime: 2000,
+        position: 'bottom',
+      })
+      // navigation.navigate(Stacks.TabStack)
     } catch (e: unknown) {
       console.log('importwalleterror', e)
       Toast.show({
@@ -168,7 +156,7 @@ const ImportWalletVerify: React.FC = () => {
   const VerifyPharase = () => {
     if (encodeHash !== '') {
       const importConfig: WalletExportImportConfig = {
-        key: 'ayanworks',
+        key: encodeHash,
         path: selectedfilepath,
       }
       console.log('imporconfig', importConfig)
@@ -190,18 +178,12 @@ const ImportWalletVerify: React.FC = () => {
 
       const myKeys = await keyGen768(seed)
       const symetric = await Encrypt768(myKeys[0], seed)
-      console.log('res', res)
-      setencodeHash(md5(symetric[1]))
-      // RNFS.readDir(res).then((result) => {
-      //   console.log('GOT RESULT', result)
 
-      //   // stat the first file
-      //   return Promise.all([RNFS.stat(result[0].path), result[0].path])
-      // })
+      setencodeHash(md5(symetric[1]))
+
       RNFetchBlob.fs
-        .stat(decodeURIComponent(res.fileCopyUri))
+        .stat(res.fileCopyUri)
         .then((stats) => {
-          console.log('stats', stats)
           setselectedfilepath(stats.path)
         })
         .catch((err: string) => {

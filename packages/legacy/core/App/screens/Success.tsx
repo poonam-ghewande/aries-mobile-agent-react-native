@@ -17,6 +17,7 @@ const Success: React.FC = () => {
       alignSelf: 'center',
       padding: 20,
       fontSize: 20,
+      color: '#ffff',
     },
   })
   return (

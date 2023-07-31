@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/core'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Dimensions } from 'react-native'
 
 import Button, { ButtonType } from '../components/buttons/Button'
@@ -11,9 +12,10 @@ interface PhraseData {
   value: string
 }
 
-const Passphrase: React.FC = () => {
+const ExportWallet: React.FC = () => {
   const { ColorPallet, TextTheme } = useTheme()
   const navigation = useNavigation()
+  const { t } = useTranslation()
   const [phraseData, setPhraseData] = useState<PhraseData[]>([
     { id: 1, value: 'abandon' },
     { id: 2, value: 'ability' },
@@ -24,12 +26,11 @@ const Passphrase: React.FC = () => {
     { id: 7, value: 'abuse' },
     { id: 8, value: 'absorb' },
   ])
-  const screen = Dimensions.get('screen')
 
   const styles = StyleSheet.create({
     container: {
       justifyContent: 'center',
-      height: screen.height,
+      height: '100%',
       flex: 1,
     },
     subcontainer: {
@@ -89,11 +90,8 @@ const Passphrase: React.FC = () => {
     <ScrollView contentContainerStyle={styles.container}>
       <View>
         <View>
-          <Text style={[TextTheme.title, styles.titleText]}>Write down your seed phrase</Text>
-          <Text style={[TextTheme.label, styles.detailText]}>
-            This is your seed phrase. Write it down on a paper and keep it in a safe place. You'll be asked to re-enter
-            this phrase (in order) on the next step.
-          </Text>
+          <Text style={[TextTheme.title, styles.titleText]}>{t('Backup.write_down')}</Text>
+          <Text style={[TextTheme.label, styles.detailText]}>{t('Backup.this_is_your_seed')}</Text>
         </View>
       </View>
       <View style={styles.subcontainer}>
@@ -120,11 +118,11 @@ const Passphrase: React.FC = () => {
           title={'Continue'}
           accessibilityLabel={'Okay'}
           buttonType={ButtonType.Primary}
-          onPress={() => navigation.navigate(Screens.PassphraseVerify as never)}
+          onPress={() => navigation.navigate(Screens.ExportWalletConfirmation as never)}
         />
       </View>
     </ScrollView>
   )
 }
 
-export default Passphrase
+export default ExportWallet

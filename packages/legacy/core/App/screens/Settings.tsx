@@ -33,7 +33,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
   const [store, dispatch] = useStore()
   const developerOptionCount = useRef(0)
   const { SettingsTheme, TextTheme, ColorPallet, Assets } = useTheme()
-  const { settings, enableTours } = useConfiguration()
+  const { settings, enableTours, enableBackupWallet } = useConfiguration()
   const languages = [
     { id: Locales.en, value: t('Language.English') },
     { id: Locales.fr, value: t('Language.French') },
@@ -124,6 +124,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
         },
       ],
     },
+
     {
       header: {
         icon: 'settings',
@@ -134,7 +135,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
           title: t('Backup.backup_wallet'),
           accessibilityLabel: t('Settings.Backup'),
           testID: testIdWithKey('Biometrics'),
-          onPress: () => navigation.navigate(Screens.Passphrase as never),
+          onPress: () => navigation.navigate(Screens.ExportWallet as never),
           value: undefined,
         },
       ],
@@ -165,7 +166,7 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
   ]
 
   if (enableTours && store.preferences.developerModeEnabled) {
-    const section = settingsSections.find((item) => item.header.title === t('Settings.AppSettings'))
+    const section = settingsSections.find((item) => item.header.title === t('S'))
     if (section) {
       section.data = [
         ...section.data,
@@ -175,6 +176,21 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
           accessibilityLabel: t('Settings.AppGuides'),
           testID: testIdWithKey('AppGuides'),
           onPress: () => navigation.navigate(Screens.Tours),
+        },
+      ]
+    }
+  }
+  if (enableBackupWallet && store.preferences.BackupWalletModeEnabled) {
+    const section = settingsSections.find((item) => item.header.title === 'Security')
+    if (section) {
+      section.data = [
+        ...section.data,
+        {
+          title: t('Settings.Backup'),
+          value: undefined,
+          // accessibilityLabel: t('Settings.AppGuides'),
+          testID: testIdWithKey('AppGuides'),
+          onPress: () => navigation.navigate(Screens.ExportWallet),
         },
       ]
     }

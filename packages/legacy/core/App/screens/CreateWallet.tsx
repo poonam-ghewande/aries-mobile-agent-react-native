@@ -18,7 +18,6 @@ const CreateWallet: React.FC = () => {
       fontSize: 45,
       fontWeight: 'bold',
       alignSelf: 'center',
-      padding: 100,
       color: ColorPallet.brand.text,
     },
     subcontainer: {},

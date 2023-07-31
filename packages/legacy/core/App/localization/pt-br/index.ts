@@ -455,6 +455,11 @@ const translation = {
     "ConnectionInvitation": "Convite de conexão",
     "CreateConnectionInvitation": "Criar um convite de conexão",
     "NameWallet": "Name your wallet (PT-BR)",
+    "BackupWallet":"Carteira de backup ",
+    "Confirmação": 'Confirmação',
+    "CreateWallet": 'Criar Carteira',
+    "VerifyPhrase": 'Verificar frase',
+    "Sucesso": 'Sucesso'
   },
   "Loading": {
     "TakingTooLong": "Isso esta demorando mais que o normal. Você pode voltar para a home ou continuar esperando.",
@@ -528,6 +533,19 @@ const translation = {
     "InvalidPredicateValueTitle": "Valor inválido para {{ predicate }}",
     "InvalidPredicateValueDetails": "Deve ser um número",
     "ConnectionLessLabel": "Anônimo"
+  },
+  "Backup" :{
+    "write_down": 'Escreva sua frase inicial',
+    "this_is_your_seed":
+      "Esta é a sua frase inicial. Escreva-a em um papel e guarde-a em um local seguro. Você será solicitado a reinserir esta frase (em ordem) na próxima etapa.",
+    "continuar": 'Continuar',
+    "seed_phrase": 'Frase-semente',
+    "confirm_seed_phrase": 'Confirmar frase de semente',
+    "select_each": 'Selecione cada palavra na ordem em que foi apresentada a você.',
+    "you_have_successfully": 'Você selecionou as palavras com sucesso.',
+    "complete_backup": 'Backup completo',
+    "backup_wallet": 'Carteira de backup',
+  
   }
 }
 

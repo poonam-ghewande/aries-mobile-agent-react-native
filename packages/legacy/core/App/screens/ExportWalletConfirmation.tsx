@@ -2,6 +2,7 @@ import { useAgent } from '@aries-framework/react-hooks'
 import { useNavigation } from '@react-navigation/core'
 import md5 from 'md5'
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   View,
   Text,
@@ -12,9 +13,10 @@ import {
   PermissionsAndroid,
   Platform,
 } from 'react-native'
-import RNFS from 'react-native-fs'
+// import RNFS from 'react-native-fs'
 import Toast from 'react-native-toast-message'
 import { zip } from 'react-native-zip-archive'
+import RNFetchBlob from 'rn-fetch-blob'
 
 import ButtonLoading from '../components/animated/ButtonLoading'
 import Button, { ButtonType } from '../components/buttons/Button'
@@ -22,15 +24,15 @@ import { ToastType } from '../components/toast/BaseToast'
 import { useTheme } from '../contexts/theme'
 import { Screens } from '../types/navigators'
 import { Encrypt768, keyGen768 } from '../utils/crystals-kyber'
-
 interface PhraseData {
   id: number
   value: string
 }
 
-function PassphraseVerification() {
+function ExportWalletConfirmation() {
   const { agent } = useAgent()
   const navigation = useNavigation()
+  const { t } = useTranslation()
   const [phraseData, setPhraseData] = useState<PhraseData[]>([])
   const [arraySetPhraseData, setArraySetPhraseData] = useState<string[]>([])
   const [nextPhraseIndex, setNextPhraseIndex] = useState(0)
@@ -53,6 +55,7 @@ function PassphraseVerification() {
     container: {
       flex: 1,
       justifyContent: 'space-around',
+      height: '100%',
     },
     scrollview: {
       flex: 1,
@@ -133,24 +136,35 @@ function PassphraseVerification() {
     const symetric = await Encrypt768(myKeys[0], seed)
     const encodeHash = md5(symetric[1])
     console.log(encodeHash)
-
+    const { fs } = RNFetchBlob
     try {
-      const documentDirectory = RNFS.DownloadDirectoryPath
+      const documentDirectory = fs.dirs.DocumentDir
       const zipDirectory = `${documentDirectory}/Wallet_Backup`
-
-      const destFileExists = await RNFS.exists(zipDirectory)
+      const destFileExists = await fs.exists(zipDirectory)
       if (destFileExists) {
-        await RNFS.unlink(zipDirectory)
+        await fs.unlink(zipDirectory)
       }
+
+      // const destFileExists = await RNFS.exists(zipDirectory)
+      // if (destFileExists) {
+      //   await RNFS.unlink(zipDirectory)
+      // }
 
       const date = new Date()
       const dformat = `${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`
       const WALLET_FILE_NAME = `SSI_Wallet_${dformat}`
 
-      await RNFS.mkdir(zipDirectory)
+      await fs
+        .mkdir(zipDirectory)
+        .then(() => console.log('generated'))
+        .catch((err) => console.log('not generated', err))
       const destinationZipPath = `${documentDirectory}/${WALLET_FILE_NAME}.zip`
       const encryptedFileName = `${WALLET_FILE_NAME}.wallet`
       const encryptedFileLocation = `${zipDirectory}/${encryptedFileName}`
+      // await RNFS.mkdir(zipDirectory)
+      // const destinationZipPath = `${documentDirectory}/${WALLET_FILE_NAME}.zip`
+      // const encryptedFileName = `${WALLET_FILE_NAME}.wallet`
+      // const encryptedFileLocation = `${zipDirectory}/${encryptedFileName}`
 
       const exportConfig = {
         key: 'ayanworks',
@@ -163,6 +177,8 @@ function PassphraseVerification() {
         type: ToastType.Success,
         text1: 'Backup successfully',
       })
+      setMatchPhrase(true)
+      navigation.navigate(Screens.Success as never)
     } catch (e) {
       Toast.show({
         type: ToastType.Error,
@@ -222,8 +238,6 @@ function PassphraseVerification() {
 
       if (sysPassPhrase === userPassphrase) {
         askPermission(sysPassPhrase)
-        setMatchPhrase(true)
-        navigation.navigate(Screens.Success as never)
       } else {
         Toast.show({
           type: ToastType.Error,
@@ -236,8 +250,8 @@ function PassphraseVerification() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View>
-        <Text style={[TextTheme.headerTitle, styles.titleText]}>Confirm Seed Phrase</Text>
-        <Text style={[TextTheme.label, styles.detailText]}>Select each word in the order it was presented to you.</Text>
+        <Text style={[TextTheme.headerTitle, styles.titleText]}>{t('Backup.confirm_seed_phrase')}</Text>
+        <Text style={[TextTheme.label, styles.detailText]}>{t('Backup.select_each')}</Text>
       </View>
 
       <View style={[styles.addPhraseView]}>
@@ -290,4 +304,4 @@ function PassphraseVerification() {
   )
 }
 
-export default PassphraseVerification
+export default ExportWalletConfirmation

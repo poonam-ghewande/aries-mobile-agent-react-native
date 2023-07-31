@@ -42,6 +42,7 @@ enum PreferencesDispatchAction {
   USE_CONNECTION_INVITER_CAPABILITY = 'preferences/useConnectionInviterCapability',
   USE_DEV_VERIFIER_TEMPLATES = 'preferences/useDevVerifierTemplates',
   UPDATE_WALLET_NAME = 'preferences/updateWalletName',
+  ENABLE_BACKUP_WALLET = 'preferences/BackupWalletModeEnabled',
 }
 
 enum ToursDispatchAction {
@@ -191,6 +192,17 @@ export const reducer = <S extends State>(state: S, action: ReducerAction<Dispatc
       AsyncStorage.setItem(LocalStorageKeys.Preferences, JSON.stringify(preferences))
 
       return newState
+    }
+    case PreferencesDispatchAction.ENABLE_BACKUP_WALLET: {
+      const choice = (action?.payload ?? []).pop() ?? false
+      const preferences = { ...state.preferences, BackupWalletModeEnabled: choice }
+
+      AsyncStorage.setItem(LocalStorageKeys.Preferences, JSON.stringify(preferences))
+
+      return {
+        ...state,
+        preferences,
+      }
     }
     case ToursDispatchAction.UPDATE_SEEN_TOUR_PROMPT: {
       const seenToursPrompt: ToursState = (action?.payload ?? []).pop() ?? false

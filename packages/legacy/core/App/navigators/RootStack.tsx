@@ -14,6 +14,7 @@ import { useTheme } from '../contexts/theme'
 import { useDeepLinks } from '../hooks/deep-links'
 import AttemptLockout from '../screens/AttemptLockout'
 import CreateWallet from '../screens/CreateWallet'
+import Home from '../screens/Home'
 import ImportSuccess from '../screens/ImportSuccess'
 import ImportWalletVerify from '../screens/ImportWalletConfirmation'
 import NameWallet from '../screens/NameWallet'
@@ -32,7 +33,6 @@ import ProofRequestStack from './ProofRequestStack'
 import SettingStack from './SettingStack'
 import TabStack from './TabStack'
 import { createDefaultStackOptions } from './defaultStackOptions'
-import Home from '../screens/Home'
 
 const RootStack: React.FC = () => {
   const [state, dispatch] = useStore()
@@ -247,7 +247,7 @@ const RootStack: React.FC = () => {
         <Stack.Screen
           name={Screens.WalletOptions}
           options={() => ({
-            title: t('Screens.BackupWallet'),
+            title: t('Screens.CreateWallet'),
             headerTintColor: OnboardingTheme.headerTintColor,
             headerShown: true,
             headerLeft: () => false,

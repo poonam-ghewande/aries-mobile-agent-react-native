@@ -36,8 +36,8 @@ export enum Screens {
   ProofDetails = 'Proof Details',
   ConnectionInvitation = 'Connection Invitation',
   NameWallet = 'Name Wallet',
-  Passphrase = 'Passphrase',
-  PassphraseVerify = 'Seed Phrase',
+  ExportWallet = 'Passphrase',
+  ExportWalletConfirmation = 'Seed Phrase',
   ImportWallet = 'Import Wallet',
   ImportWalletVerify = 'Verify Phrase',
   Success = 'Success',
@@ -137,8 +137,8 @@ export type SettingStackParams = {
   [Screens.Terms]: undefined
   [Screens.Onboarding]: undefined
   [Screens.Developer]: undefined
-  [Screens.Passphrase]: undefined
-  [Screens.PassphraseVerify]: undefined
+  [Screens.ExportWallet]: undefined
+  [Screens.ExportWalletConfirmation]: undefined
   [Screens.Success]: undefined
 }
 

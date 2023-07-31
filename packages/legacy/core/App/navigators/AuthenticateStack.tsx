@@ -10,6 +10,7 @@ import ImportWallet from '../screens/ImportWallet'
 import ImportWalletVerify from '../screens/ImportWalletConfirmation'
 import PINEnter from '../screens/PINEnter'
 import { AuthenticateStackParams, Screens } from '../types/navigators'
+import { testIdWithKey } from '../utils/testable'
 
 import { createDefaultStackOptions } from './defaultStackOptions'
 
@@ -30,18 +31,14 @@ const AuthenticateStack: React.FC<AuthenticateStackProps> = ({ setAuthenticated 
       <Stack.Screen
         name={Screens.ImportWallet}
         component={ImportWallet}
-        // options={{ title: t('Screens.BackupWallet'), headerBackTestID: testIdWithKey('Back') }}
+        // options={{ title: t('Screens.BackupWallet'), }}
       />
       <Stack.Screen
         name={Screens.ImportWalletVerify}
         component={ImportWalletVerify}
-        options={{ title: t('Screens.CreateWallet') }}
+        options={{ title: t('Screens.CreateWallet'), headerBackTestID: testIdWithKey('Back') }}
       />
-      <Stack.Screen
-        name={Screens.ImportSuccess}
-        component={ImportSuccess}
-        options={{ title: t('Screens.BackupWallet') }}
-      />
+      <Stack.Screen name={Screens.ImportSuccess} component={ImportSuccess} options={{ title: t('Screens.Success') }} />
       <Stack.Screen
         name={Screens.WalletOptions}
         component={CreateWallet}
